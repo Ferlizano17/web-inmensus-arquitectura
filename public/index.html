@@ -102,6 +102,15 @@ header.top{position:sticky;top:0;z-index:20;background:rgba(246,245,241,.96);bor
 
 
 /* Nosotros */
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:48px}
+.feat div{background:#fff;padding:28px}
+.feat .eyebrow{font-size:12px;color:var(--ink)}
+.feat p:last-child{margin:12px 0 0;line-height:1.55;color:var(--muted)}
+/* Cajas en pantallas anchas, lista en pantallas estrechas */
+.pts{display:none}
+@media (max-width:700px){.feat{display:none}.pts{display:block}}
+/* Alinear el texto con el titular cuando las columnas van lado a lado */
+@media (min-width:960px){.about-right{padding-top:var(--about-offset,34px)}}
 .pts{list-style:none;padding:0;margin:36px 0 0;border-top:1px solid var(--line)}
 .pts li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:1.5}
 .pts li::before{content:"";width:8px;height:8px;background:var(--y);outline:1px solid var(--ink);align-self:center;flex:0 0 auto}
@@ -324,7 +333,7 @@ footer a{color:#fff}
       <img src="img/alonso.jpg" alt="Alonso Calderón, arquitecto de Inmensus" width="360" height="360" loading="lazy" class="about-photo" style="aspect-ratio:1/1;width:100%;max-width:360px;height:auto;object-fit:cover;display:block;margin-top:32px;border:1px solid var(--line)">
       <p class="about-name" style="margin:16px 0 0;font-size:15px"><strong>Alonso Calderón</strong><br><span style="color:var(--muted2)">Arquitecto y director de proyectos</span></p>
     </div>
-    <div style="flex:1.3 1 480px;min-width:0">
+    <div class="about-right" style="flex:1.3 1 480px;min-width:0">
       <p class="about-lead" style="font-size:20px;line-height:1.6;margin:0">En Inmensus el mismo arquitecto que diseña su proyecto es quien lo construye. Así lo que se dibuja en los planos es lo que se levanta en obra, sin intermediarios ni sorpresas.</p>
       <p class="about-body" style="font-size:17px;line-height:1.7;color:var(--muted);margin:24px 0 0">Le acompañamos desde la elección del lote hasta la entrega, y si lo necesita, también diseñamos el mobiliario a la medida de su espacio.</p>
       <ul class="pts">
@@ -332,6 +341,13 @@ footer a{color:#fff}
         <li><strong>Presupuesto claro</strong><span>Diseñamos dentro de su rango de inversión.</span></li>
         <li><strong>Trámites resueltos</strong><span>Gestionamos CFIA y municipalidad por usted.</span></li>
       </ul>
+      <div class="feat">
+        <div><p class="eyebrow">01 · Un solo interlocutor</p><p>Habla siempre con el arquitecto responsable, del primer boceto a la última inspección.</p></div>
+        <div><p class="eyebrow">02 · Trámites resueltos</p><p>Gestionamos el proceso en la plataforma APC del CFIA y el permiso municipal por usted.</p></div>
+        <div><p class="eyebrow">03 · Presupuesto claro</p><p>Diseñamos dentro de su rango de inversión y le explicamos cada costo directo e indirecto.</p></div>
+        <div><p class="eyebrow">04 · Todo el país</p><p>Con base en San José, desarrollamos proyectos en cualquier provincia de Costa Rica.</p></div>
+      </div>
+
 </div>
     </div>
   </div>
