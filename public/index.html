@@ -7,6 +7,17 @@
 <meta name="description" content="Constructora liderada por un arquitecto. Diseño, planos, permisos y construcción de viviendas y locales comerciales en todo Costa Rica. Calcule una inversión de referencia.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" href="img/favicon.png">
+<meta name="theme-color" content="#2F2F2F">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CR">
+<meta property="og:site_name" content="Inmensus Arquitectura">
+<meta property="og:title" content="Inmensus Arquitectura · Diseño y construcción llave en mano">
+<meta property="og:description" content="Diseño, planos, permisos y construcción con un arquitecto al frente. Calcule una inversión de referencia en segundos.">
+<meta property="og:url" content="https://inmensus-arquitectura.netlify.app/">
+<meta property="og:image" content="https://inmensus-arquitectura.netlify.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -46,6 +57,31 @@ input[type=range]{width:100%;accent-color:var(--ink);height:32px}
 .card{border:1px solid var(--line);background:#fff}
 .hint{margin:8px 0 0;font-size:13px;color:var(--muted2)}
 [hidden]{display:none!important}
+h1,h2,h3{text-wrap:balance}
+.mcta{display:none;min-height:44px;padding:0 18px}
+.hdr-actions{display:flex;gap:8px;align-items:center}
+
+/* Barra fija móvil */
+.mbar{display:none}
+@media (max-width:900px){
+  .mcta{display:inline-flex}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(246,245,241,.97);border-top:1px solid var(--line);transition:transform .2s}
+  .mbar.off{transform:translateY(110%)}
+  .mbar .btn{min-height:48px;padding:0 14px;font-size:15px;white-space:nowrap}
+  .mbar .main{flex:1 1 auto}
+  .mbar .wa{flex:0 0 auto}
+  body{padding-bottom:76px}
+}
+
+/* FAQ */
+.faq{margin-top:48px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;min-height:44px;font-size:17px;font-weight:500}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:300 28px Jost,Inter,sans-serif;line-height:1;flex:0 0 auto}
+.faq details[open] summary::after{content:"–"}
+.faq details p{margin:0 0 22px;line-height:1.7;color:var(--muted);max-width:760px}
+.sent{padding:16px 18px;background:#fff;border:1px solid var(--line);font-size:14px;line-height:1.6}
 
 /* Aviso de prueba */
 .preview{background:var(--y);color:var(--ink);font-size:13px;text-align:center;padding:8px 16px}
@@ -156,6 +192,40 @@ footer{background:var(--ink);color:#fff}
 footer .wrap{padding-top:56px;padding-bottom:56px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:32px}
 footer p{margin:0;font-size:14px;color:#DADADA;line-height:1.6}
 footer a{color:#fff}
+
+/* ===== Ajustes móvil ===== */
+@media (max-width:700px){
+  .sec{padding:64px 0}
+  .row{gap:40px}
+  .hero .wrap{padding-top:40px;padding-bottom:56px;gap:40px}
+  .hero .sub{font-size:17px;margin-top:20px}
+  .hero .ctas .btn{width:100%}
+  .ticks{margin-top:32px}
+  .hero-img>img{aspect-ratio:4/3}
+  .feat{margin-top:32px}.feat div{padding:20px}
+  .cards{gap:14px;margin-top:32px}
+  .cards article{padding:24px;gap:12px}
+  .head-row{gap:16px}
+  /* Ruta: línea de tiempo */
+  .steps{grid-template-columns:1fr;margin-top:40px;border-top:0;border-left:1px solid rgba(255,255,255,.3);margin-left:6px}
+  .steps div{border-right:0;padding:0 0 32px 24px;position:relative}
+  .steps div::before{content:"";position:absolute;left:-5px;top:12px;width:9px;height:9px;background:var(--y)}
+  .steps .n{font-size:36px}
+  .steps h3{margin-top:8px}
+  .tip{margin-top:16px;padding:18px}
+  /* Carruseles */
+  .gal,.ops{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:24px;gap:14px;margin-left:-24px;margin-right:-24px;padding:0 24px 8px;scrollbar-width:none}
+  .gal::-webkit-scrollbar,.ops::-webkit-scrollbar{display:none}
+  .gal figure,.ops figure{flex:0 0 82%;scroll-snap-align:start}
+  .gal{margin-top:28px}
+  .swipe{display:block!important}
+  [data-group=filtro]{flex-wrap:nowrap;overflow-x:auto;margin:0 -24px;padding:0 24px 4px;scrollbar-width:none;width:calc(100% + 48px)}
+  [data-group=filtro]::-webkit-scrollbar{display:none}
+  [data-group=filtro] .pill{flex:0 0 auto}
+  .tabs{margin-top:32px}
+  .faq{margin-top:28px}
+}
+.swipe{display:none;margin:10px 0 0;font-size:13px;color:var(--muted2)}
 </style>
 </head>
 <body>
@@ -174,10 +244,13 @@ footer a{color:#fff}
       <a href="#contacto">Contacto</a>
       <a class="btn btn-y" href="#cotizador">Cotizar</a>
     </nav>
-    <button class="btn btn-o menu-btn" type="button" aria-expanded="false" aria-controls="mnav" id="menuBtn">Menú</button>
+    <div class="hdr-actions">
+      <a class="btn btn-y mcta" href="#cotizador">Cotizar</a>
+      <button class="btn btn-o menu-btn" type="button" aria-expanded="false" aria-controls="mnav" id="menuBtn">Menú</button>
+    </div>
   </div>
   <nav class="mnav" id="mnav" aria-label="Menú móvil" hidden>
-    <a href="#nosotros">Nosotros</a><a href="#servicios">Servicios</a><a href="#ruta">Proceso</a><a href="#cotizador">Cotizador</a><a href="#galeria">Galería</a><a href="#opiniones">Opiniones</a><a href="#contacto">Contacto</a>
+    <a href="#nosotros">Nosotros</a><a href="#servicios">Servicios</a><a href="#ruta">Proceso</a><a href="#cotizador">Cotizador</a><a href="#galeria">Galería</a><a href="#opiniones">Opiniones</a><a href="#preguntas">Preguntas frecuentes</a><a href="#contacto">Contacto</a>
   </nav>
 </header>
 
@@ -189,7 +262,7 @@ footer a{color:#fff}
       <p class="eyebrow">Diseño y construcción llave en mano · Costa Rica</p>
       <h1 class="h">Diseñamos y construimos su proyecto, <span style="font-weight:500">de principio a fin</span></h1>
       <p class="sub">Una constructora liderada por un arquitecto. Nos encargamos del diseño, los planos, los permisos y la obra, para que usted solo tenga que recibir la llave.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:40px">
+      <div class="ctas" style="display:flex;flex-wrap:wrap;gap:14px;margin-top:40px">
         <a class="btn btn-y" href="#cotizador">Calcular inversión de referencia</a>
         <a class="btn btn-o" href="#contacto" data-motivo="reunion">Agendar reunión con el arquitecto</a>
       </div>
@@ -200,7 +273,7 @@ footer a{color:#fff}
       </ul>
     </div>
     <div class="hero-img">
-      <img src="img/hero.jpg" alt="Render de una vivienda de dos plantas con fachada blanca y madera, rodeada de árboles" width="536" height="670">
+      <img src="img/hero.jpg" alt="Render de una vivienda de dos plantas con fachada blanca y madera, rodeada de árboles" width="536" height="670" fetchpriority="high">
       <div class="badge"><img src="img/cube.png" alt="" width="52" height="52"><p>Un solo responsable, de la idea a la llave.</p></div>
     </div>
   </div>
@@ -213,7 +286,7 @@ footer a{color:#fff}
       <p class="eyebrow">Nosotros</p>
       <h2 class="h h2">Arquitectura y obra bajo una misma dirección</h2>
       <hr class="rule">
-      <img src="img/alonso.jpg" alt="Alonso Calderón, arquitecto de Inmensus" width="360" height="360" style="aspect-ratio:1/1;width:100%;max-width:360px;height:auto;object-fit:cover;display:block;margin-top:32px;border:1px solid var(--line)">
+      <img src="img/alonso.jpg" alt="Alonso Calderón, arquitecto de Inmensus" width="360" height="360" loading="lazy" style="aspect-ratio:1/1;width:100%;max-width:360px;height:auto;object-fit:cover;display:block;margin-top:32px;border:1px solid var(--line)">
       <p style="margin:16px 0 0;font-size:15px"><strong>Alonso Calderón</strong><br><span style="color:var(--muted2)">Arquitecto y director de proyectos</span></p>
     </div>
     <div style="flex:1.3 1 480px;min-width:0">
@@ -268,12 +341,12 @@ footer a{color:#fff}
 <!-- RUTA -->
 <section id="ruta" class="sec ruta grid-bg-dark">
   <div class="wrap">
-    <p class="eyebrow">Ruta de un proyecto</p>
+    <p class="eyebrow">Proceso</p>
     <h2 class="h h2">Del lote a la llave, en cuatro etapas</h2>
     <div class="steps">
       <div><p class="n">01</p><h3 class="h">Estudios preliminares</h3><p class="t">Aprox. 1 mes</p><p>Visita al lote, uso de suelo, disponibilidad de agua y electricidad, topografía, estudio de suelos y lista de necesidades.</p></div>
       <div><p class="n">02</p><h3 class="h">Anteproyecto</h3><p class="t">Aprox. 1 mes</p><p>Diseñamos la propuesta según sus necesidades y su presupuesto, y la ajustamos con usted hasta aprobarla.</p></div>
-      <div><p class="n">03</p><h3 class="h">Planos y permisos</h3><p class="t">Aprox. 2 a 3 meses</p><p>Planos arquitectónicos, estructurales, mecánicos y eléctricos. Tramitamos el CFIA y el permiso municipal por usted.</p></div>
+      <div><p class="n">03</p><h3 class="h">Planos y permisos</h3><p class="t">Aprox. 2 a 3 meses</p><p>Planos arquitectónicos, estructurales y mecánicos, y coordinación del plano eléctrico con un profesional del área. Tramitamos el CFIA y el permiso municipal por usted.</p></div>
       <div><p class="n">04</p><h3 class="h">Construcción</h3><p class="t">Según el proyecto</p><p>Ejecutamos e inspeccionamos la obra conforme a los planos aprobados, hasta entregarle la llave.</p></div>
     </div>
     <div class="tip">
@@ -359,7 +432,7 @@ footer a{color:#fff}
         </div>
       </div>
 
-      <div class="q-res" aria-live="polite">
+      <div class="q-res" id="qres" aria-live="polite">
         <p class="eyebrow">Inversión estimada desde</p>
         <p class="q-total" id="total">—</p>
         <p class="q-sub" id="subline"></p>
@@ -420,6 +493,7 @@ footer a{color:#fff}
         <button type="button" class="pill" data-val="mobiliario">Mobiliario</button>
       </div>
     </div>
+    <p class="swipe" aria-hidden="true">Deslice para ver más →</p>
     <div class="gal">
       <figure data-cat="viviendas"><div class="ph">Imagen de ejemplo</div><figcaption><span>Vivienda unifamiliar</span><span>San José</span></figcaption></figure>
       <figure data-cat="locales"><div class="ph">Imagen de ejemplo</div><figcaption><span>Local comercial</span><span>Heredia</span></figcaption></figure>
@@ -437,10 +511,45 @@ footer a{color:#fff}
   <div class="wrap">
     <p class="eyebrow">Opiniones</p>
     <h2 class="h h2">Lo que dicen nuestros clientes</h2>
+    <p class="swipe" aria-hidden="true">Deslice para ver más →</p>
     <div class="cards ops">
       <figure class="card"><svg width="32" height="24" viewBox="0 0 32 24" fill="#FFD60A" stroke="#2F2F2F" stroke-width="1" aria-hidden="true"><path d="M2 22V12C2 6 5 2 11 2v4c-3 0-5 2-5 6h5v10zM19 22V12c0-6 3-10 9-10v4c-3 0-5 2-5 6h5v10z"/></svg><blockquote>[Opinión real de un cliente — pendiente]</blockquote><figcaption><strong>[Nombre del cliente]</strong><br><span style="color:var(--muted2)">[Tipo de proyecto · provincia]</span></figcaption></figure>
       <figure class="card"><svg width="32" height="24" viewBox="0 0 32 24" fill="#FFD60A" stroke="#2F2F2F" stroke-width="1" aria-hidden="true"><path d="M2 22V12C2 6 5 2 11 2v4c-3 0-5 2-5 6h5v10zM19 22V12c0-6 3-10 9-10v4c-3 0-5 2-5 6h5v10z"/></svg><blockquote>[Opinión real de un cliente — pendiente]</blockquote><figcaption><strong>[Nombre del cliente]</strong><br><span style="color:var(--muted2)">[Tipo de proyecto · provincia]</span></figcaption></figure>
       <figure class="card"><svg width="32" height="24" viewBox="0 0 32 24" fill="#FFD60A" stroke="#2F2F2F" stroke-width="1" aria-hidden="true"><path d="M2 22V12C2 6 5 2 11 2v4c-3 0-5 2-5 6h5v10zM19 22V12c0-6 3-10 9-10v4c-3 0-5 2-5 6h5v10z"/></svg><blockquote>[Opinión real de un cliente — pendiente]</blockquote><figcaption><strong>[Nombre del cliente]</strong><br><span style="color:var(--muted2)">[Tipo de proyecto · provincia]</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- PREGUNTAS FRECUENTES -->
+<section id="preguntas" class="sec white">
+  <div class="wrap">
+    <p class="eyebrow">Preguntas frecuentes</p>
+    <h2 class="h h2">Antes de empezar</h2>
+    <div class="faq">
+      <details>
+        <summary>¿Qué incluye el servicio llave en mano?</summary>
+        <p>Todo lo necesario para pasar de la idea a la llave: estudios preliminares, diseño del anteproyecto, planos constructivos, trámites ante el CFIA y la municipalidad, y la construcción con dirección técnica. El mobiliario a medida se cotiza aparte, una vez definido el diseño.</p>
+      </details>
+      <details>
+        <summary>Todavía no tengo lote, ¿pueden ayudarme?</summary>
+        <p>Sí. Antes de que compre, revisamos el terreno con usted: uso de suelo, disponibilidad de agua y electricidad, topografía y la reglamentación que aplica. Así sabe si el lote sirve para lo que quiere construir.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto tiempo pasa antes de empezar a construir?</summary>
+        <p>Como referencia: alrededor de un mes de estudios preliminares, un mes de anteproyecto y entre dos y tres meses de planos y permisos. Los plazos de la municipalidad y los estudios del terreno pueden alargarlo. La duración de la obra depende de cada proyecto.</p>
+      </details>
+      <details>
+        <summary>¿Puedo financiar la construcción con un banco?</summary>
+        <p>Sí. El banco le pedirá los planos y el permiso de construcción. Le recomendamos iniciar el trámite bancario mientras avanzamos con el diseño y los permisos, para que el crédito esté listo cuando se libere el permiso.</p>
+      </details>
+      <details>
+        <summary>¿El monto del cotizador es el precio final?</summary>
+        <p>No. Es una referencia para planificar. El precio final se define en una cotización escrita, según el diseño, el terreno, los acabados y la ubicación. Algunos elementos, como tapias, portones, piscina o paneles solares, se cotizan aparte.</p>
+      </details>
+      <details>
+        <summary>¿Trabajan fuera de San José?</summary>
+        <p>Sí. Tenemos base en San José y desarrollamos proyectos en todo el país.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -487,7 +596,7 @@ footer a{color:#fff}
         </div>
         <div class="two-col">
           <div><label class="lbl" for="nombre">Nombre</label><input id="nombre" name="nombre" class="field" required autocomplete="name"></div>
-          <div><label class="lbl" for="tel">Teléfono</label><input id="tel" name="telefono" type="tel" class="field" required autocomplete="tel"></div>
+          <div><label class="lbl" for="tel">Teléfono</label><input id="tel" name="telefono" type="tel" class="field" required autocomplete="tel" placeholder="8888 8888"></div>
         </div>
         <div><label class="lbl" for="email">Correo electrónico (opcional)</label><input id="email" name="email" type="email" class="field" autocomplete="email"></div>
         <div><label class="lbl" for="msg">Cuéntenos de su proyecto</label><textarea id="msg" name="mensaje" class="field" placeholder="Ubicación, tamaño aproximado, qué le gustaría lograr…"></textarea></div>
@@ -497,6 +606,7 @@ footer a{color:#fff}
           <button type="submit" class="btn btn-y" id="submitBtn">Enviar por WhatsApp</button>
           <span style="font-size:13px;color:var(--muted2)">Se abrirá WhatsApp con su mensaje listo para enviar.</span>
         </div>
+        <p class="sent" id="sentMsg" role="status" hidden>Abrimos WhatsApp con su mensaje. Solo falta pulsar <strong>Enviar</strong> en WhatsApp. ¿No se abrió? Escríbanos o llámenos al <a href="tel:+50686530542">+506 8653 0542</a>.</p>
       </form>
     </div>
   </div>
@@ -510,6 +620,13 @@ footer a{color:#fff}
     <p style="font-size:13px;color:#CFCFCF"><a href="legal.html" style="color:#CFCFCF">Aviso legal y privacidad</a> · © <span id="yr">2026</span> Inmensus Arquitectura</p>
   </div>
 </footer>
+
+<div class="mbar" id="mbar">
+  <a class="btn btn-y main" id="mbarMain" href="#cotizador">Calcular inversión</a>
+  <a class="btn btn-o wa" href="https://wa.me/50686530542" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F2F2F" stroke-width="1.6" aria-hidden="true"><path d="M4 20l1.5-4.5A8 8 0 1 1 9 19z"/></svg>WhatsApp
+  </a>
+</div>
 
 <script>
 (function(){
@@ -631,7 +748,25 @@ footer a{color:#fff}
     if (s.resumen && s.motivo!=='remodelacion') L.push('Cotización de referencia: '+s.resumen);
     if (f.mensaje.value.trim()) L.push('Proyecto: '+f.mensaje.value.trim());
     window.open(wa(L.join('\n')), '_blank', 'noopener');
+    $('sentMsg').hidden = false;
   });
+
+  // Barra móvil: cambia según la sección visible
+  var inCot=false, inCon=false, inHero=true;
+  function updBar(){
+    var b=$('mbar'), m=$('mbarMain');
+    b.classList.toggle('off', inCon);
+    if (inCot){ m.textContent='Resultado: '+$('total').textContent; m.setAttribute('href','#qres'); }
+    else { m.textContent='Calcular inversión'; m.setAttribute('href','#cotizador'); }
+  }
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){ es.forEach(function(e){
+      if (e.target.id==='cotizador') inCot=e.isIntersecting;
+      if (e.target.id==='contacto') inCon=e.isIntersecting;
+    }); updBar(); }, { rootMargin:'-30% 0px -30% 0px' }).observe($('cotizador'));
+    new IntersectionObserver(function(es){ es.forEach(function(e){ inCon=e.isIntersecting; }); updBar(); }, { rootMargin:'0px 0px -40% 0px' }).observe($('contacto'));
+  }
+  var _render=render; render=function(){ _render(); updBar(); };
 
   $('yr').textContent = new Date().getFullYear();
   render();
