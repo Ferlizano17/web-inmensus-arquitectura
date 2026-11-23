@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inmensus Arquitectura · Diseño y construcción llave en mano en Costa Rica</title>
+<meta name="description" content="Constructora liderada por un arquitecto. Diseño, planos, permisos y construcción de viviendas y locales comerciales en todo Costa Rica. Calcule una inversión de referencia.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2F2F2F;--paper:#F6F5F1;--y:#FFD60A;--muted:#4A4A4A;--muted2:#5E5E5E;--line:#D9D6CE;--line2:#BDB9AF}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--ink)}a:hover{color:#000}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.sec{padding:104px 0;border-bottom:1px solid var(--line)}
+.white{background:#fff}
+.h{font-family:Jost,Inter,sans-serif;font-weight:300;text-transform:uppercase;letter-spacing:.06em;margin:0}
+.h2{font-size:clamp(32px,3.6vw,48px);line-height:1.1;margin-top:18px}
+.eyebrow{font-family:Jost,Inter,sans-serif;font-weight:500;font-size:13px;letter-spacing:.22em;text-transform:uppercase;margin:0;color:var(--muted2)}
+.rule{width:96px;height:1px;background:currentColor;opacity:.5;border:0;margin:20px 0}
+.grid-bg{background-image:linear-gradient(rgba(47,47,47,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(47,47,47,.06) 1px,transparent 1px);background-size:32px 32px}
+.grid-bg-dark{background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:32px 32px}
+.row{display:flex;flex-wrap:wrap;gap:64px}
+.head-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px}
+.head-row p.lead{max-width:480px;margin:0;color:var(--muted);line-height:1.6}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;font:500 15px Inter,sans-serif;text-decoration:none;border:1px solid var(--ink);cursor:pointer;transition:background .15s,color .15s;text-align:center}
+.btn-y{background:var(--y);color:var(--ink);border-color:var(--y)}.btn-y:hover{background:var(--ink);color:var(--y);border-color:var(--ink)}
+.btn-o{background:transparent;color:var(--ink)}.btn-o:hover{background:var(--ink);color:#fff}
+.btn-ol{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}.btn-ol:hover{background:#fff;color:var(--ink)}
+:focus-visible{outline:3px solid var(--y);outline-offset:2px}
+.pill{min-height:44px;padding:0 18px;border:1px solid var(--line2);background:#fff;color:var(--ink);font:500 14px Inter,sans-serif;cursor:pointer}
+.pill:hover{border-color:var(--ink)}
+.pill[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.lbl{display:block;font-size:13px;font-weight:600;letter-spacing:.04em;margin:0 0 10px}
+.field{width:100%;min-height:48px;padding:10px 14px;border:1px solid var(--line2);background:#fff;font:400 15px Inter,sans-serif;color:var(--ink);border-radius:0}
+textarea.field{min-height:110px;resize:vertical}
+input[type=range]{width:100%;accent-color:var(--ink);height:32px}
+.ph{background:repeating-linear-gradient(135deg,#E9E6DE 0 12px,#E2DFD6 12px 24px);display:flex;align-items:flex-end;padding:16px;color:var(--muted2);font-size:13px}
+.card{border:1px solid var(--line);background:#fff}
+.hint{margin:8px 0 0;font-size:13px;color:var(--muted2)}
+[hidden]{display:none!important}
+
+/* Aviso de prueba */
+.preview{background:var(--y);color:var(--ink);font-size:13px;text-align:center;padding:8px 16px}
+
+/* Header */
+header.top{position:sticky;top:0;z-index:20;background:rgba(246,245,241,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:12px;padding-bottom:12px}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{font-size:14px;text-decoration:none;padding:12px 0}.nav a:hover{text-decoration:underline;text-underline-offset:6px}
+.nav a.btn{padding:0 20px;min-height:44px}.nav a.btn:hover{text-decoration:none}
+.menu-btn{display:none;min-height:44px}
+.mnav{display:flex;flex-direction:column;padding:8px 24px 20px;border-top:1px solid var(--line)}
+.mnav a{padding:12px 0;text-decoration:none}
+@media (max-width:900px){.nav{display:none}.menu-btn{display:inline-flex}}
+
+/* Hero */
+.hero .wrap{padding-top:88px;padding-bottom:96px;display:flex;flex-wrap:wrap;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,5.4vw,72px);line-height:1.05;margin-top:24px}
+.hero .sub{font-size:19px;line-height:1.6;color:var(--muted);max-width:560px;margin:28px 0 0}
+.ticks{list-style:none;padding:0;margin:48px 0 0;display:flex;flex-wrap:wrap;gap:12px 32px;font-size:14px;color:var(--muted)}
+.ticks li{display:flex;gap:10px;align-items:center}
+.ticks li::before{content:"";width:8px;height:8px;background:var(--y);outline:1px solid var(--ink)}
+.hero-img{flex:1 1 420px;min-width:0;position:relative}
+.hero-img>img{aspect-ratio:4/5;width:100%;height:auto;object-fit:cover;display:block;border:1px solid var(--line)}
+.badge{position:absolute;left:-28px;bottom:36px;background:var(--ink);color:#fff;padding:22px 26px;display:flex;gap:18px;align-items:center;max-width:320px}
+.badge img{width:52px;height:52px;flex:0 0 auto}.badge p{margin:0;font-size:15px;line-height:1.45}
+@media (max-width:600px){.badge{left:12px;right:12px;bottom:12px;padding:16px 18px}}
+
+/* Nosotros */
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:48px}
+.feat div{background:#fff;padding:28px}
+.feat .eyebrow{font-size:12px;color:var(--ink)}
+.feat p:last-child{margin:12px 0 0;line-height:1.55;color:var(--muted)}
+
+/* Servicios */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:56px}
+.cards article{padding:32px;display:flex;flex-direction:column;gap:16px}
+.cards h3{font-size:22px;font-weight:400}
+.cards p{margin:0;line-height:1.6;color:var(--muted)}
+.cards a.more{margin-top:auto;font-weight:500;font-size:14px}
+
+/* Ruta */
+.ruta{background-color:var(--ink);color:#fff;border-bottom:0}
+.ruta .eyebrow{color:var(--y)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:64px;border-top:1px solid rgba(255,255,255,.25)}
+.steps div{padding:32px 28px 8px 0;border-right:1px solid rgba(255,255,255,.12)}
+.steps .n{font-family:Jost,sans-serif;font-weight:300;font-size:56px;margin:0;color:var(--y);line-height:1}
+.steps h3{font-size:20px;font-weight:400;margin-top:20px}
+.steps .t{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#CFCFCF;margin:10px 0 0}
+.steps p:last-child{line-height:1.6;color:#E2E2E2;margin:16px 0 0;font-size:15px}
+.tip{margin-top:56px;padding:24px 28px;border:1px solid rgba(255,255,255,.25);display:flex;gap:18px;align-items:flex-start;max-width:860px}
+.tip p{margin:0;line-height:1.6;color:#E2E2E2}
+
+/* Cotizador */
+.tabs{margin-top:48px;background:var(--ink);display:flex;flex-wrap:wrap;padding:0 16px}
+.tab{min-height:52px;padding:0 28px;border:0;border-bottom:3px solid transparent;background:transparent;color:#BFBFBF;font:400 16px Jost,Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.tab:hover{color:#fff}.tab[aria-selected=true]{color:#fff;border-bottom-color:var(--y)}
+.quote{display:flex;flex-wrap:wrap;border:1px solid var(--line);border-top:0;background:#fff}
+.q-form{flex:1.2 1 480px;min-width:0;padding:40px;display:flex;flex-direction:column;gap:32px}
+.q-form>div{display:flex;flex-direction:column;gap:32px}
+.q-res{flex:1 1 380px;min-width:0;background:var(--ink);color:#fff;padding:40px;display:flex;flex-direction:column;gap:20px}
+.q-res .eyebrow{color:var(--y)}
+.q-total{font-family:Jost,sans-serif;font-weight:400;font-size:clamp(38px,4vw,52px);margin:0;line-height:1}
+.q-sub{margin:0;color:#DADADA;font-size:15px}
+.linkbtn{background:transparent;border:0;color:#fff;padding:10px 0;min-height:44px;font:500 14px Inter,sans-serif;text-decoration:underline;text-underline-offset:5px;cursor:pointer;align-self:flex-start}
+.bd{margin:8px 0 0;display:flex;flex-direction:column;font-size:14px}
+.bd div{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.bd dt{color:#DADADA}.bd dd{margin:0;font-variant-numeric:tabular-nums}
+.bd div:last-child{font-weight:600}
+.q-ctas{display:flex;flex-direction:column;gap:10px;margin-top:auto;padding-top:12px}
+.q-ctas .two{display:flex;flex-wrap:wrap;gap:10px}.q-ctas .two a{flex:1 1 160px}
+.q-note{margin:0;font-size:12px;line-height:1.55;color:#CFCFCF}
+.numbox{display:flex;align-items:center;border:1px solid var(--line2);min-height:48px;padding:0 12px;gap:6px;flex:0 0 auto}
+.numbox input{width:64px;border:0;font:600 18px Inter,sans-serif;text-align:right;background:transparent;color:var(--ink)}
+.numbox span{color:var(--muted2)}
+.slider{display:flex;gap:16px;align-items:center}
+.acab{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.acab .pill{min-height:72px;text-align:left;padding:12px 16px}
+.acab .pill b{display:block;font-weight:600}.acab .pill small{display:block;font-weight:400;font-size:13px;margin-top:4px;opacity:.85}
+details.inc{margin-top:24px;border:1px solid var(--line);background:#fff;padding:0 24px}
+details.inc summary{cursor:pointer;padding:18px 0;font-weight:500}
+.inc .cols{display:flex;flex-wrap:wrap;gap:32px;padding:4px 0 24px;font-size:14px;line-height:1.6;color:var(--muted)}
+.inc .cols>div{flex:1 1 320px}.inc .cols p{font-weight:600;color:var(--ink);margin:0 0 8px}.inc ul{margin:0;padding-left:18px}
+@media (max-width:600px){.q-form,.q-res{padding:28px 20px}.tabs{padding:0}.tab{flex:1 1 0;padding:0 8px;font-size:14px;letter-spacing:.1em}}
+
+/* Galería */
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:48px}
+.gal figure{margin:0}.gal .ph{aspect-ratio:4/3;border:1px solid var(--line)}
+.gal figcaption{display:flex;justify-content:space-between;gap:12px;padding:12px 0 0;font-size:14px}
+.gal figcaption span:first-child{font-weight:500}.gal figcaption span:last-child{color:var(--muted2)}
+
+/* Opiniones */
+.ops figure{margin:0;padding:32px;display:flex;flex-direction:column;gap:20px}
+.ops blockquote{margin:0;font-size:17px;line-height:1.6;color:var(--muted2)}
+.ops figcaption{font-size:14px;margin-top:auto}
+
+/* Contacto */
+.clist{list-style:none;padding:0;margin:40px 0 0;display:flex;flex-direction:column;gap:18px;font-size:16px}
+.clist li{display:flex;gap:14px;align-items:center}
+.cform{padding:40px;display:flex;flex-direction:column;gap:24px;background:var(--paper)}
+.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.resumen{padding:14px 16px;background:#fff;border:1px solid var(--line);font-size:14px;line-height:1.5}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:13px;line-height:1.5;color:var(--muted)}
+.consent input{width:20px;height:20px;margin:0;accent-color:var(--ink);flex:0 0 auto}
+@media (max-width:600px){.cform{padding:28px 20px}}
+
+footer{background:var(--ink);color:#fff}
+footer .wrap{padding-top:56px;padding-bottom:56px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:32px}
+footer p{margin:0;font-size:14px;color:#DADADA;line-height:1.6}
+footer a{color:#fff}
+</style>
+</head>
+<body>
+
+<div class="preview" role="note">Versión de prueba para revisión · Los precios y contenidos marcados están pendientes de validar</div>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#inicio" aria-label="Inmensus Arquitectura, inicio"><img src="img/logo-dark.png" alt="Inmensus Arquitectura" style="height:48px;width:auto;display:block"></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#ruta">Proceso</a>
+      <a href="#galeria">Galería</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#contacto">Contacto</a>
+      <a class="btn btn-y" href="#cotizador">Cotizar</a>
+    </nav>
+    <button class="btn btn-o menu-btn" type="button" aria-expanded="false" aria-controls="mnav" id="menuBtn">Menú</button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Menú móvil" hidden>
+    <a href="#nosotros">Nosotros</a><a href="#servicios">Servicios</a><a href="#ruta">Proceso</a><a href="#cotizador">Cotizador</a><a href="#galeria">Galería</a><a href="#opiniones">Opiniones</a><a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main>
+<!-- INICIO -->
+<section id="inicio" class="hero grid-bg" style="border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div style="flex:1 1 520px;min-width:0">
+      <p class="eyebrow">Diseño y construcción llave en mano · Costa Rica</p>
+      <h1 class="h">Diseñamos y construimos su proyecto, <span style="font-weight:500">de principio a fin</span></h1>
+      <p class="sub">Una constructora liderada por un arquitecto. Nos encargamos del diseño, los planos, los permisos y la obra, para que usted solo tenga que recibir la llave.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:40px">
+        <a class="btn btn-y" href="#cotizador">Calcular inversión de referencia</a>
+        <a class="btn btn-o" href="#contacto" data-motivo="reunion">Agendar reunión con el arquitecto</a>
+      </div>
+      <ul class="ticks">
+        <li>Viviendas y locales comerciales</li>
+        <li>Trámites CFIA y municipales incluidos</li>
+        <li>Trabajamos en todo el país</li>
+      </ul>
+    </div>
+    <div class="hero-img">
+      <img src="img/hero.jpg" alt="Render de una vivienda de dos plantas con fachada blanca y madera, rodeada de árboles" width="536" height="670">
+      <div class="badge"><img src="img/cube.png" alt="" width="52" height="52"><p>Un solo responsable, de la idea a la llave.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros" class="sec white">
+  <div class="wrap row" style="align-items:flex-start">
+    <div style="flex:1 1 360px;min-width:0">
+      <p class="eyebrow">Nosotros</p>
+      <h2 class="h h2">Arquitectura y obra bajo una misma dirección</h2>
+      <hr class="rule">
+      <img src="img/alonso.jpg" alt="Alonso Calderón, arquitecto de Inmensus" width="360" height="360" style="aspect-ratio:1/1;width:100%;max-width:360px;height:auto;object-fit:cover;display:block;margin-top:32px;border:1px solid var(--line)">
+      <p style="margin:16px 0 0;font-size:15px"><strong>Alonso Calderón</strong><br><span style="color:var(--muted2)">Arquitecto y director de proyectos</span></p>
+    </div>
+    <div style="flex:1.3 1 480px;min-width:0">
+      <p style="font-size:20px;line-height:1.6;margin:0">En Inmensus el mismo arquitecto que diseña su proyecto es quien lo construye. Así lo que se dibuja en los planos es lo que se levanta en obra, sin intermediarios ni sorpresas.</p>
+      <p style="font-size:17px;line-height:1.7;color:var(--muted);margin:24px 0 0">Le acompañamos desde antes de comprar el lote hasta la entrega de la llave: estudios preliminares, diseño, planos constructivos, trámites digitales ante el CFIA y la municipalidad, y la construcción. Si lo necesita, también diseñamos y fabricamos el mobiliario a la medida de su espacio.</p>
+      <div class="feat">
+        <div><p class="eyebrow">01 · Un solo interlocutor</p><p>Habla siempre con el arquitecto responsable, del primer boceto a la última inspección.</p></div>
+        <div><p class="eyebrow">02 · Trámites resueltos</p><p>Gestionamos el proceso en la plataforma APC del CFIA y el permiso municipal por usted.</p></div>
+        <div><p class="eyebrow">03 · Presupuesto claro</p><p>Diseñamos dentro de su rango de inversión y le explicamos cada costo directo e indirecto.</p></div>
+        <div><p class="eyebrow">04 · Todo el país</p><p>Con base en San José, desarrollamos proyectos en cualquier provincia de Costa Rica.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="sec grid-bg">
+  <div class="wrap">
+    <div class="head-row">
+      <div><p class="eyebrow">Servicios</p><h2 class="h h2">Qué hacemos</h2></div>
+      <p class="lead">Viviendas y locales comerciales, obra nueva o remodelación, con o sin mobiliario a medida.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#2F2F2F" stroke-width="1.5" aria-hidden="true"><path d="M5 19 20 6l15 13"/><path d="M9 16v18h22V16"/><path d="M17 34v-9h6v9"/></svg>
+        <h3 class="h">Llave en mano</h3>
+        <p>Diseño, presupuesto, planos, permisos y construcción de su vivienda o local comercial desde cero.</p>
+        <a class="more" href="#cotizador" data-mode="con">Calcular inversión →</a>
+      </article>
+      <article class="card">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#2F2F2F" stroke-width="1.5" aria-hidden="true"><rect x="6" y="10" width="28" height="22"/><path d="M6 18h28M16 10v22"/><path d="M24 24l6-6M26 30l4-4" stroke-dasharray="2 2"/></svg>
+        <h3 class="h">Remodelaciones</h3>
+        <p>Ampliaciones y renovaciones de casas y locales, con diseño, trámites y obra a cargo de un mismo equipo.</p>
+        <a class="more" href="#contacto" data-motivo="remodelacion">Solicitar cotización →</a>
+      </article>
+      <article class="card">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#2F2F2F" stroke-width="1.5" aria-hidden="true"><rect x="7" y="6" width="26" height="28"/><path d="M20 6v28M7 20h26"/><path d="M16 13v3M24 13v3M16 25v3M24 25v3"/></svg>
+        <h3 class="h">Mobiliario a medida</h3>
+        <p>Diseño y fabricación de cocinas, muebles de baño, roperos y clósets pensados para su espacio.</p>
+        <a class="more" href="#cotizador" data-mode="mob">Calcular inversión →</a>
+      </article>
+      <article class="card">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#2F2F2F" stroke-width="1.5" aria-hidden="true"><path d="M6 32 14 8l12 6 8-6v24l-8 6-12-6z"/><path d="M14 8v24M26 14v24"/></svg>
+        <h3 class="h">Asesoría de lote</h3>
+        <p>Le ayudamos a evaluar un terreno antes de comprarlo: uso de suelo, disponibilidad de servicios y reglamentación.</p>
+        <a class="more" href="#contacto" data-motivo="reunion">Agendar reunión →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- RUTA -->
+<section id="ruta" class="sec ruta grid-bg-dark">
+  <div class="wrap">
+    <p class="eyebrow">Ruta de un proyecto</p>
+    <h2 class="h h2">Del lote a la llave, en cuatro etapas</h2>
+    <div class="steps">
+      <div><p class="n">01</p><h3 class="h">Estudios preliminares</h3><p class="t">Aprox. 1 mes</p><p>Visita al lote, uso de suelo, disponibilidad de agua y electricidad, topografía, estudio de suelos y lista de necesidades.</p></div>
+      <div><p class="n">02</p><h3 class="h">Anteproyecto</h3><p class="t">Aprox. 1 mes</p><p>Diseñamos la propuesta según sus necesidades y su presupuesto, y la ajustamos con usted hasta aprobarla.</p></div>
+      <div><p class="n">03</p><h3 class="h">Planos y permisos</h3><p class="t">Aprox. 2 a 3 meses</p><p>Planos arquitectónicos, estructurales, mecánicos y eléctricos. Tramitamos el CFIA y el permiso municipal por usted.</p></div>
+      <div><p class="n">04</p><h3 class="h">Construcción</h3><p class="t">Según el proyecto</p><p>Ejecutamos e inspeccionamos la obra conforme a los planos aprobados, hasta entregarle la llave.</p></div>
+    </div>
+    <div class="tip">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#FFD60A" stroke-width="1.5" aria-hidden="true" style="flex:0 0 auto"><circle cx="14" cy="14" r="11"/><path d="M14 8v7M14 19v1"/></svg>
+      <p>¿Va a financiar con un banco? Le recomendamos avanzar el trámite bancario en paralelo al diseño y los permisos, para que ambos estén listos al mismo tiempo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COTIZADOR -->
+<section id="cotizador" class="sec">
+  <div class="wrap">
+    <div class="head-row">
+      <div><p class="eyebrow">Cotizador</p><h2 class="h h2">Calcule una inversión de referencia</h2></div>
+      <p class="lead">Responda unas pocas preguntas y obtenga un monto aproximado en segundos. Es una referencia para planificar, no una cotización formal.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Tipo de cotización">
+      <button type="button" role="tab" class="tab" id="tab-con" aria-selected="true" aria-controls="panel-con">Construcción</button>
+      <button type="button" role="tab" class="tab" id="tab-mob" aria-selected="false" aria-controls="panel-mob">Mobiliario</button>
+    </div>
+
+    <div class="quote">
+      <div class="q-form">
+        <div id="panel-con" role="tabpanel" aria-labelledby="tab-con">
+          <div>
+            <span class="lbl" id="l-tipo">1. ¿Qué desea construir?</span>
+            <div class="pills" role="group" aria-labelledby="l-tipo" data-group="tipo">
+              <button type="button" class="pill" data-val="vivienda">Vivienda</button>
+              <button type="button" class="pill" data-val="local">Local comercial</button>
+            </div>
+          </div>
+          <div>
+            <label class="lbl" for="m2">2. Área de construcción aproximada</label>
+            <div class="slider">
+              <input id="m2" type="range" min="40" max="600" step="5" value="100" aria-describedby="m2help">
+              <div class="numbox"><input id="m2n" type="number" min="20" max="2000" value="100" aria-label="Metros cuadrados" inputmode="numeric"><span>m²</span></div>
+            </div>
+            <p id="m2help" class="hint">Como guía: una casa de 2 habitaciones ronda los 70–90 m²; de 3 habitaciones, 100–140 m².</p>
+          </div>
+          <div>
+            <span class="lbl" id="l-lote">3. ¿Ya tiene lote?</span>
+            <div class="pills" role="group" aria-labelledby="l-lote" data-group="lote">
+              <button type="button" class="pill" data-val="si">Sí, ya tengo lote</button>
+              <button type="button" class="pill" data-val="no">Todavía no</button>
+            </div>
+            <p id="sinLote" class="hint" style="color:var(--muted);font-size:14px" hidden>Podemos asesorarle en la compra del terreno antes de diseñar.</p>
+          </div>
+          <div>
+            <label class="lbl" for="prov">4. ¿En qué provincia?</label>
+            <select id="prov" class="field">
+              <option>San José</option><option>Alajuela</option><option>Cartago</option><option>Heredia</option><option>Guanacaste</option><option>Puntarenas</option><option>Limón</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="panel-mob" role="tabpanel" aria-labelledby="tab-mob" hidden>
+          <div>
+            <span class="lbl" id="l-mueble">1. ¿Qué mueble necesita?</span>
+            <div class="pills" role="group" aria-labelledby="l-mueble" data-group="mueble">
+              <button type="button" class="pill" data-val="cocina">Cocina</button>
+              <button type="button" class="pill" data-val="bano">Mueble de baño</button>
+              <button type="button" class="pill" data-val="ropero">Ropero / clóset</button>
+              <button type="button" class="pill" data-val="otro">Otro mueble</button>
+            </div>
+          </div>
+          <div>
+            <label class="lbl" for="ml">2. Largo aproximado del mueble</label>
+            <div class="slider">
+              <input id="ml" type="range" min="1" max="12" step="0.5" value="4" aria-describedby="mlhelp">
+              <div class="numbox"><output id="mlTxt" for="ml" style="font:600 18px Inter,sans-serif;min-width:40px;text-align:right">4</output><span>m lineales</span></div>
+            </div>
+            <p id="mlhelp" class="hint"></p>
+          </div>
+          <div>
+            <span class="lbl" id="l-acab">3. Nivel de acabado</span>
+            <div class="acab" role="group" aria-labelledby="l-acab" data-group="acabado">
+              <button type="button" class="pill" data-val="std"><b>Estándar</b><small>Melamina de buena calidad y herrajes estándar</small></button>
+              <button type="button" class="pill" data-val="sup"><b>Superior</b><small>Enchapes o lacados y herrajes de cierre suave</small></button>
+            </div>
+          </div>
+          <p style="margin:0;padding:12px 14px;background:#FFF6C2;font-size:13px;line-height:1.5">Versión de prueba: los precios de mobiliario son de ejemplo y están pendientes de validar.</p>
+        </div>
+      </div>
+
+      <div class="q-res" aria-live="polite">
+        <p class="eyebrow">Inversión estimada desde</p>
+        <p class="q-total" id="total">—</p>
+        <p class="q-sub" id="subline"></p>
+        <div id="detailWrap">
+          <button type="button" class="linkbtn" id="detailBtn" aria-expanded="false" aria-controls="bd">Ver desglose de costos</button>
+          <dl class="bd" id="bd" hidden></dl>
+        </div>
+        <div class="q-ctas">
+          <a class="btn btn-y" href="#contacto" id="askDetailed">Pedir cotización detallada</a>
+          <div class="two">
+            <a class="btn btn-ol" id="waQuote" href="https://wa.me/50686530542" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+            <a class="btn btn-ol" href="#contacto" data-motivo="reunion">Agendar reunión</a>
+          </div>
+        </div>
+        <p class="q-note">Monto de referencia, no es una cotización formal. El precio final depende del diseño, el terreno, los acabados y la ubicación.</p>
+      </div>
+    </div>
+
+    <details class="inc" id="incluye">
+      <summary>Qué incluye y qué no incluye esta referencia</summary>
+      <div class="cols">
+        <div>
+          <p>Incluye</p>
+          <ul>
+            <li>Materiales, mano de obra y subcontratos de la obra (costo directo).</li>
+            <li>Aranceles del CFIA y administración APC.</li>
+            <li>Honorarios profesionales: estudios preliminares, anteproyecto, planos y dirección técnica, con su IVA.</li>
+            <li>Permiso municipal de construcción y póliza de riesgos del trabajo del INS.</li>
+            <li>Previsión de tanque séptico de 1.200 L y hasta 6 m lineales de drenaje en lotes sin alcantarillado público.</li>
+          </ul>
+        </div>
+        <div>
+          <p>Se cotiza aparte</p>
+          <ul>
+            <li>Plano eléctrico (profesional externo, alrededor de ₡150 000) y estudio de infiltración.</li>
+            <li>Mobiliario de cocina, baños y clósets.</li>
+            <li>Movimientos de tierra, tapias, portones, aceras y verjas.</li>
+            <li>Jardines, piscina o jacuzzi, paneles solares, aire acondicionado.</li>
+            <li>Cámaras, cerca eléctrica, alarma, iluminación exterior y BBQ.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+    <p style="margin:20px 0 0;font-size:14px;color:var(--muted)">¿Es una remodelación? Cada caso es distinto: <a href="#contacto" data-motivo="remodelacion">cuéntenos su proyecto en el formulario</a>.</p>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria" class="sec white">
+  <div class="wrap">
+    <div class="head-row">
+      <div><p class="eyebrow">Galería</p><h2 class="h h2">Proyectos</h2></div>
+      <div class="pills" role="group" aria-label="Filtrar proyectos" data-group="filtro">
+        <button type="button" class="pill" data-val="todos">Todos</button>
+        <button type="button" class="pill" data-val="viviendas">Viviendas</button>
+        <button type="button" class="pill" data-val="locales">Locales</button>
+        <button type="button" class="pill" data-val="remodelaciones">Remodelaciones</button>
+        <button type="button" class="pill" data-val="mobiliario">Mobiliario</button>
+      </div>
+    </div>
+    <div class="gal">
+      <figure data-cat="viviendas"><div class="ph">Imagen de ejemplo</div><figcaption><span>Vivienda unifamiliar</span><span>San José</span></figcaption></figure>
+      <figure data-cat="locales"><div class="ph">Imagen de ejemplo</div><figcaption><span>Local comercial</span><span>Heredia</span></figcaption></figure>
+      <figure data-cat="remodelaciones"><div class="ph">Imagen de ejemplo</div><figcaption><span>Remodelación de cocina</span><span>Cartago</span></figcaption></figure>
+      <figure data-cat="viviendas"><div class="ph">Imagen de ejemplo</div><figcaption><span>Vivienda de una planta</span><span>Alajuela</span></figcaption></figure>
+      <figure data-cat="mobiliario"><div class="ph">Imagen de ejemplo</div><figcaption><span>Clóset a medida</span><span>San José</span></figcaption></figure>
+      <figure data-cat="mobiliario"><div class="ph">Imagen de ejemplo</div><figcaption><span>Mueble de baño</span><span>Guanacaste</span></figcaption></figure>
+    </div>
+    <p style="margin:40px 0 0;font-size:15px">Más obra en proceso en Instagram: <a href="https://www.instagram.com/inmensusarquitectura" target="_blank" rel="noopener">@inmensusarquitectura</a></p>
+  </div>
+</section>
+
+<!-- OPINIONES -->
+<section id="opiniones" class="sec grid-bg">
+  <div class="wrap">
+    <p class="eyebrow">Opiniones</p>
+    <h2 class="h h2">Lo que dicen nuestros clientes</h2>
+    <div class="cards ops">
+      <figure class="card"><svg width="32" height="24" viewBox="0 0 32 24" fill="#FFD60A" stroke="#2F2F2F" stroke-width="1" aria-hidden="true"><path d="M2 22V12C2 6 5 2 11 2v4c-3 0-5 2-5 6h5v10zM19 22V12c0-6 3-10 9-10v4c-3 0-5 2-5 6h5v10z"/></svg><blockquote>[Opinión real de un cliente — pendiente]</blockquote><figcaption><strong>[Nombre del cliente]</strong><br><span style="color:var(--muted2)">[Tipo de proyecto · provincia]</span></figcaption></figure>
+      <figure class="card"><svg width="32" height="24" viewBox="0 0 32 24" fill="#FFD60A" stroke="#2F2F2F" stroke-width="1" aria-hidden="true"><path d="M2 22V12C2 6 5 2 11 2v4c-3 0-5 2-5 6h5v10zM19 22V12c0-6 3-10 9-10v4c-3 0-5 2-5 6h5v10z"/></svg><blockquote>[Opinión real de un cliente — pendiente]</blockquote><figcaption><strong>[Nombre del cliente]</strong><br><span style="color:var(--muted2)">[Tipo de proyecto · provincia]</span></figcaption></figure>
+      <figure class="card"><svg width="32" height="24" viewBox="0 0 32 24" fill="#FFD60A" stroke="#2F2F2F" stroke-width="1" aria-hidden="true"><path d="M2 22V12C2 6 5 2 11 2v4c-3 0-5 2-5 6h5v10zM19 22V12c0-6 3-10 9-10v4c-3 0-5 2-5 6h5v10z"/></svg><blockquote>[Opinión real de un cliente — pendiente]</blockquote><figcaption><strong>[Nombre del cliente]</strong><br><span style="color:var(--muted2)">[Tipo de proyecto · provincia]</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="sec white" style="border-bottom:0">
+  <div class="wrap row">
+    <div style="flex:1 1 340px;min-width:0">
+      <p class="eyebrow">Contacto</p>
+      <h2 class="h h2">Hablemos de su proyecto</h2>
+      <hr class="rule">
+      <p style="font-size:17px;line-height:1.6;color:var(--muted);margin:0">Pida una cotización detallada o agende una reunión con el arquitecto, virtual o en persona. Le respondemos en menos de 24 horas hábiles.</p>
+      <ul class="clist">
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F2F2F" stroke-width="1.5" aria-hidden="true"><path d="M5 3h4l2 5-3 2a11 11 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><a href="tel:+50686530542">+506 8653 0542</a></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F2F2F" stroke-width="1.5" aria-hidden="true"><path d="M4 20l1.5-4.5A8 8 0 1 1 9 19z"/></svg><a href="https://wa.me/50686530542" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F2F2F" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#2F2F2F"/></svg><a href="https://www.instagram.com/inmensusarquitectura" target="_blank" rel="noopener">@inmensusarquitectura</a></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F2F2F" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>San José, Costa Rica · proyectos en todo el país</span></li>
+      </ul>
+    </div>
+
+    <div style="flex:1.4 1 480px;min-width:0">
+      <form id="cform" class="card cform" novalidate>
+        <div>
+          <span class="lbl" id="l-motivo">¿Qué necesita?</span>
+          <div class="pills" role="group" aria-labelledby="l-motivo" data-group="motivo">
+            <button type="button" class="pill" data-val="cotizacion">Cotización detallada</button>
+            <button type="button" class="pill" data-val="reunion">Reunión con el arquitecto</button>
+            <button type="button" class="pill" data-val="remodelacion">Remodelación</button>
+          </div>
+        </div>
+        <div class="resumen" id="resumenBox" hidden><strong>Se incluirá su cotización de referencia:</strong><br><span id="resumenTxt"></span></div>
+        <div id="reunionBox" hidden style="display:flex;flex-direction:column;gap:24px">
+          <div>
+            <span class="lbl" id="l-reunion">Tipo de reunión</span>
+            <div class="pills" role="group" aria-labelledby="l-reunion" data-group="reunion">
+              <button type="button" class="pill" data-val="virtual">Virtual</button>
+              <button type="button" class="pill" data-val="presencial">Presencial</button>
+            </div>
+          </div>
+          <div class="two-col">
+            <div><label class="lbl" for="fecha">Fecha preferida</label><input id="fecha" name="fecha" type="date" class="field"></div>
+            <div><label class="lbl" for="franja">Horario</label><select id="franja" name="franja" class="field"><option>Mañana (8:00–12:00)</option><option>Tarde (13:00–17:00)</option></select></div>
+          </div>
+        </div>
+        <div class="two-col">
+          <div><label class="lbl" for="nombre">Nombre</label><input id="nombre" name="nombre" class="field" required autocomplete="name"></div>
+          <div><label class="lbl" for="tel">Teléfono</label><input id="tel" name="telefono" type="tel" class="field" required autocomplete="tel"></div>
+        </div>
+        <div><label class="lbl" for="email">Correo electrónico (opcional)</label><input id="email" name="email" type="email" class="field" autocomplete="email"></div>
+        <div><label class="lbl" for="msg">Cuéntenos de su proyecto</label><textarea id="msg" name="mensaje" class="field" placeholder="Ubicación, tamaño aproximado, qué le gustaría lograr…"></textarea></div>
+        <label class="consent"><input type="checkbox" id="consent" required><span>Acepto que Inmensus use estos datos para responder mi solicitud, según la <a href="legal.html#privacidad">política de privacidad</a>.</span></label>
+        <p id="formErr" role="alert" style="margin:0;color:#A12C00;font-size:14px" hidden></p>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+          <button type="submit" class="btn btn-y" id="submitBtn">Enviar por WhatsApp</button>
+          <span style="font-size:13px;color:var(--muted2)">Se abrirá WhatsApp con su mensaje listo para enviar.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo-light.png" alt="Inmensus Arquitectura" style="height:56px;width:auto">
+    <p>Diseño y construcción llave en mano · San José, Costa Rica<br><a href="tel:+50686530542">+506 8653 0542</a> · <a href="https://www.instagram.com/inmensusarquitectura" target="_blank" rel="noopener">Instagram</a></p>
+    <p style="font-size:13px;color:#CFCFCF"><a href="legal.html" style="color:#CFCFCF">Aviso legal y privacidad</a> · © <span id="yr">2026</span> Inmensus Arquitectura</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ===== CONFIGURACIÓN =====
+  var WHATSAPP = '50686530542';
+  var COSTO_M2 = 390000; // costo directo (materiales + mano de obra) por m², según presupuesto de Inmensus
+  // Precios de mobiliario: DE EJEMPLO, pendientes de validar con Inmensus (₡ por metro lineal)
+  var MOB = {
+    cocina: { label:'Cocina',          std:350000, sup:550000, min:1,   max:12, def:4,   help:'Mida a lo largo de la pared donde irán los muebles bajos y altos.' },
+    bano:   { label:'Mueble de baño',  std:250000, sup:400000, min:0.5, max:4,  def:1,   help:'Un lavamanos sencillo suele ocupar entre 0,6 y 1,2 m.' },
+    ropero: { label:'Ropero / clóset', std:300000, sup:480000, min:1,   max:8,  def:2.5, help:'Mida el ancho de la pared donde irá el clóset.' },
+    otro:   { label:'Otro mueble',     std:280000, sup:450000, min:0.5, max:8,  def:2,   help:'Centros de entretenimiento, escritorios, recibidores, estanterías…' }
+  };
+
+  var s = { mode:'con', tipo:'vivienda', m2:100, lote:'si', prov:'San José', mueble:'cocina', ml:4, acabado:'std', filtro:'todos', motivo:'cotizacion', reunion:'virtual', resumen:'' };
+  var $ = function(id){ return document.getElementById(id); };
+  function money(n){ var r = Math.round(n/1000)*1000; return '₡' + String(r).replace(/\B(?=(\d{3})+(?!\d))/g,'.'); }
+  function dec(n){ return String(n).replace('.', ','); }
+
+  function calcCon(){
+    var D = COSTO_M2 * s.m2;
+    var tramites = D*(0.001+0.0015+0.00015) + 20000; // timbre 0,10%, derecho asistencia 0,15%, cupón 0,015%, APC
+    var honor = D*(0.0005+0.01+0.04+0.05);         // estudios prelim. 0,05%, anteproyecto 1%, planos 4%, dirección técnica 5%
+    var iva = honor*0.13, permiso = D*0.01, poliza = D*0.01393;
+    var total = D+tramites+honor+iva+permiso+poliza;
+    return { D:D, tramites:tramites, honor:honor, iva:iva, permiso:permiso, poliza:poliza, total:total, perM2:total/s.m2 };
+  }
+  function calcMob(){ var m = MOB[s.mueble]; return { m:m, total:m[s.acabado]*s.ml }; }
+  function summary(){
+    if (s.mode==='con'){ var c=calcCon(); return 'Construcción de '+(s.tipo==='vivienda'?'vivienda':'local comercial')+', '+s.m2+' m², '+s.prov+', '+(s.lote==='si'?'con lote':'sin lote todavía')+'. Inversión estimada desde '+money(c.total)+'.'; }
+    var r=calcMob(); return 'Mobiliario: '+r.m.label.toLowerCase()+', '+dec(s.ml)+' m lineales, acabado '+(s.acabado==='std'?'estándar':'superior')+'. Inversión estimada desde '+money(r.total)+'.';
+  }
+  function wa(text){ return 'https://wa.me/'+WHATSAPP+'?text='+encodeURIComponent(text); }
+
+  function syncPills(){
+    document.querySelectorAll('[data-group]').forEach(function(g){
+      var key=g.getAttribute('data-group');
+      g.querySelectorAll('[data-val]').forEach(function(b){ b.setAttribute('aria-pressed', String(s[key]===b.getAttribute('data-val'))); });
+    });
+  }
+  function render(){
+    var con = s.mode==='con';
+    $('tab-con').setAttribute('aria-selected', String(con));
+    $('tab-mob').setAttribute('aria-selected', String(!con));
+    $('panel-con').hidden = !con; $('panel-mob').hidden = con;
+    $('detailWrap').hidden = !con; $('incluye').hidden = !con;
+    $('sinLote').hidden = s.lote!=='no';
+    if (con){
+      var c=calcCon();
+      $('total').textContent = money(c.total);
+      $('subline').textContent = 'Aprox. '+money(c.perM2)+' por m² · '+s.m2+' m² en '+s.prov;
+      var rows=[['Obra: materiales y mano de obra',c.D],['Aranceles CFIA y APC',c.tramites],['Honorarios profesionales',c.honor],['IVA sobre honorarios (13%)',c.iva],['Permiso municipal',c.permiso],['Póliza INS riesgos del trabajo',c.poliza],['Total de referencia',c.total]];
+      $('bd').innerHTML = rows.map(function(r){ return '<div><dt>'+r[0]+'</dt><dd>'+money(r[1])+'</dd></div>'; }).join('');
+    } else {
+      var r=calcMob(), m=r.m, ml=$('ml');
+      ml.min=m.min; ml.max=m.max; ml.value=s.ml;
+      $('mlTxt').textContent = dec(s.ml);
+      $('mlhelp').textContent = m.help;
+      $('total').textContent = money(r.total);
+      $('subline').textContent = m.label+' · '+dec(s.ml)+' m lineales · acabado '+(s.acabado==='std'?'estándar':'superior');
+    }
+    $('waQuote').href = wa('Hola Alonso, hice una cotización de referencia en la web de Inmensus. '+summary()+' Me gustaría afinarla.');
+    // galería
+    document.querySelectorAll('.gal figure').forEach(function(f){ f.hidden = !(s.filtro==='todos' || f.getAttribute('data-cat')===s.filtro); });
+    // formulario
+    $('reunionBox').hidden = s.motivo!=='reunion';
+    var showRes = !!s.resumen && s.motivo!=='remodelacion';
+    $('resumenBox').hidden = !showRes; $('resumenTxt').textContent = s.resumen;
+    syncPills();
+  }
+
+  // Pills
+  document.querySelectorAll('[data-group]').forEach(function(g){
+    var key=g.getAttribute('data-group');
+    g.addEventListener('click', function(e){
+      var b=e.target.closest('[data-val]'); if(!b) return;
+      s[key]=b.getAttribute('data-val');
+      if (key==='mueble') s.ml = MOB[s.mueble].def;
+      render();
+    });
+  });
+  // Tabs
+  function setMode(m){ s.mode=m; render(); }
+  $('tab-con').addEventListener('click', function(){ setMode('con'); });
+  $('tab-mob').addEventListener('click', function(){ setMode('mob'); });
+  $('tab-con').parentNode.addEventListener('keydown', function(e){
+    if (e.key==='ArrowRight'||e.key==='ArrowLeft'){ var m = s.mode==='con'?'mob':'con'; setMode(m); $('tab-'+m).focus(); }
+  });
+  // Inputs
+  function setM2(v){ v=parseInt(v,10); if(isNaN(v)) return; s.m2=Math.max(20,Math.min(2000,v)); $('m2').value=Math.min(600,s.m2); $('m2n').value=s.m2; render(); }
+  $('m2').addEventListener('input', function(e){ setM2(e.target.value); });
+  $('m2n').addEventListener('change', function(e){ setM2(e.target.value); });
+  $('prov').addEventListener('change', function(e){ s.prov=e.target.value; render(); });
+  $('ml').addEventListener('input', function(e){ s.ml=parseFloat(e.target.value); render(); });
+  $('detailBtn').addEventListener('click', function(){
+    var open = $('bd').hidden; $('bd').hidden=!open;
+    this.setAttribute('aria-expanded', String(open)); this.textContent = open?'Ocultar desglose':'Ver desglose de costos';
+  });
+  // Enlaces que preparan cotizador / formulario
+  document.querySelectorAll('[data-mode]').forEach(function(a){ a.addEventListener('click', function(){ setMode(a.getAttribute('data-mode')); }); });
+  document.querySelectorAll('[data-motivo]').forEach(function(a){ a.addEventListener('click', function(){ s.motivo=a.getAttribute('data-motivo'); if(s.motivo==='remodelacion') s.resumen=''; render(); }); });
+  $('askDetailed').addEventListener('click', function(){ s.motivo='cotizacion'; s.resumen=summary(); render(); });
+  // Menú móvil
+  $('menuBtn').addEventListener('click', function(){ var o=$('mnav').hidden; $('mnav').hidden=!o; this.setAttribute('aria-expanded', String(o)); });
+  $('mnav').addEventListener('click', function(e){ if(e.target.tagName==='A'){ $('mnav').hidden=true; $('menuBtn').setAttribute('aria-expanded','false'); } });
+
+  // Formulario → WhatsApp
+  $('cform').addEventListener('submit', function(e){
+    e.preventDefault();
+    var f=e.target, err=$('formErr');
+    var nombre=f.nombre.value.trim(), tel=f.telefono.value.trim();
+    if(!nombre || !tel){ err.textContent='Por favor escriba su nombre y teléfono.'; err.hidden=false; (nombre?f.telefono:f.nombre).focus(); return; }
+    if(!$('consent').checked){ err.textContent='Para continuar, acepte el uso de sus datos para responder su solicitud.'; err.hidden=false; $('consent').focus(); return; }
+    err.hidden=true;
+    var motivos={cotizacion:'Solicitud de cotización detallada',reunion:'Solicitud de reunión con el arquitecto',remodelacion:'Solicitud de cotización de remodelación'};
+    var L=['Hola Alonso, le escribo desde la web de Inmensus.','*'+motivos[s.motivo]+'*','Nombre: '+nombre,'Teléfono: '+tel];
+    if (f.email.value.trim()) L.push('Correo: '+f.email.value.trim());
+    if (s.motivo==='reunion'){ L.push('Reunión: '+(s.reunion==='virtual'?'virtual':'presencial')); if(f.fecha.value){ var d=f.fecha.value.split('-'); L.push('Fecha preferida: '+d[2]+'/'+d[1]+'/'+d[0]); } L.push('Horario: '+f.franja.value); }
+    if (s.resumen && s.motivo!=='remodelacion') L.push('Cotización de referencia: '+s.resumen);
+    if (f.mensaje.value.trim()) L.push('Proyecto: '+f.mensaje.value.trim());
+    window.open(wa(L.join('\n')), '_blank', 'noopener');
+  });
+
+  $('yr').textContent = new Date().getFullYear();
+  render();
+})();
+</script>
+</body>
+</html>
