@@ -61,17 +61,7 @@ h1,h2,h3{text-wrap:balance}
 .mcta{display:none;min-height:44px;padding:0 18px}
 .hdr-actions{display:flex;gap:8px;align-items:center}
 
-/* Barra fija móvil */
-.mbar{display:none}
-@media (max-width:900px){
-  .mcta{display:inline-flex}
-  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(246,245,241,.97);border-top:1px solid var(--line);transition:transform .2s}
-  .mbar.off{transform:translateY(110%)}
-  .mbar .btn{min-height:48px;padding:0 14px;font-size:15px;white-space:nowrap}
-  .mbar .main{flex:1 1 auto}
-  .mbar .wa{flex:0 0 auto}
-  body{padding-bottom:76px}
-}
+@media (max-width:900px){.mcta{display:inline-flex}}
 
 /* FAQ */
 .faq{margin-top:48px;border-top:1px solid var(--line)}
@@ -621,12 +611,6 @@ footer a{color:#fff}
   </div>
 </footer>
 
-<div class="mbar" id="mbar">
-  <a class="btn btn-y main" id="mbarMain" href="#cotizador">Calcular inversión</a>
-  <a class="btn btn-o wa" href="https://wa.me/50686530542" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F2F2F" stroke-width="1.6" aria-hidden="true"><path d="M4 20l1.5-4.5A8 8 0 1 1 9 19z"/></svg>WhatsApp
-  </a>
-</div>
 
 <script>
 (function(){
@@ -750,23 +734,6 @@ footer a{color:#fff}
     window.open(wa(L.join('\n')), '_blank', 'noopener');
     $('sentMsg').hidden = false;
   });
-
-  // Barra móvil: cambia según la sección visible
-  var inCot=false, inCon=false, inHero=true;
-  function updBar(){
-    var b=$('mbar'), m=$('mbarMain');
-    b.classList.toggle('off', inCon);
-    if (inCot){ m.textContent='Resultado: '+$('total').textContent; m.setAttribute('href','#qres'); }
-    else { m.textContent='Calcular inversión'; m.setAttribute('href','#cotizador'); }
-  }
-  if ('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){ es.forEach(function(e){
-      if (e.target.id==='cotizador') inCot=e.isIntersecting;
-      if (e.target.id==='contacto') inCon=e.isIntersecting;
-    }); updBar(); }, { rootMargin:'-30% 0px -30% 0px' }).observe($('cotizador'));
-    new IntersectionObserver(function(es){ es.forEach(function(e){ inCon=e.isIntersecting; }); updBar(); }, { rootMargin:'0px 0px -40% 0px' }).observe($('contacto'));
-  }
-  var _render=render; render=function(){ _render(); updBar(); };
 
   $('yr').textContent = new Date().getFullYear();
   render();
